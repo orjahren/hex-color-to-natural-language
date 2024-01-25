@@ -4,7 +4,7 @@
   "description": "Provides a utility function to convert a hex color to its closest natural language CSS counterpart.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "tsc *ts && node tests.js"
   },
   "repository": {
     "type": "git",
