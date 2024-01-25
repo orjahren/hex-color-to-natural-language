@@ -1,6 +1,8 @@
 import { colourNameToHexMap } from "./colors";
 
-const hexToRgb = (hex: string): [number, number, number] => {
+type Rgb = [number, number, number];
+
+const hexToRgb = (hex: string): Rgb => {
   const hexColor = hex.replace("#", "");
   const r = parseInt(hexColor.substring(0, 2), 16);
   const g = parseInt(hexColor.substring(2, 4), 16);
@@ -9,9 +11,9 @@ const hexToRgb = (hex: string): [number, number, number] => {
   return [r, g, b];
 };
 
-const getColorDifference = (color1: string, color2: string): number => {
-  const [r1, g1, b1] = hexToRgb(color1);
-  const [r2, g2, b2] = hexToRgb(color2);
+const getColorDifference = (rgbToFind: Rgb, candHex: string): number => {
+  const [r1, g1, b1] = rgbToFind;
+  const [r2, g2, b2] = hexToRgb(candHex);
 
   const rDiff = Math.abs(r1 - r2);
   const gDiff = Math.abs(g1 - g2);
@@ -21,11 +23,11 @@ const getColorDifference = (color1: string, color2: string): number => {
 };
 
 const hexToColorName = (toFind: string): string => {
-  const hexColor = toFind.replace("#", "");
+  const rgbToFind = hexToRgb(toFind);
 
   const differences = Object.keys(colourNameToHexMap).map((color) => {
-    const hex = colourNameToHexMap[color].replace("#", "");
-    const diff = getColorDifference(hex, hexColor);
+    const testHex = colourNameToHexMap[color];
+    const diff = getColorDifference(rgbToFind, testHex);
     return { color, diff };
   });
 
@@ -36,15 +38,10 @@ const hexToColorName = (toFind: string): string => {
   return closestMatch.color;
 };
 
-const doTesting = () => {
-  console.log("Running tests...");
-  const test = (hex: string, expected: string) => {
+const runTests = () => {
+  const testcase = (hex: string, expected: string) => {
     const result = hexToColorName(hex);
-    if (result === expected) {
-      console.log(`✅ ${hex} -> ${result}`);
-    } else {
-      console.log(`❌ ${hex} -> ${result}`);
-    }
+    console.log(`${result === expected ? "✅" : "❌"} ${hex} -> ${result}`);
   };
 
   const tests = [
@@ -53,10 +50,11 @@ const doTesting = () => {
     ["#367c2b", "darkgreen"],
     ["#008000", "green"],
   ];
+
   for (const [hex, expected] of tests) {
-    test(hex, expected);
+    testcase(hex, expected);
   }
 };
 
-doTesting();
+runTests();
 export default hexToColorName;
