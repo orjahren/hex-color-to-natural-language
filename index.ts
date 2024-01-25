@@ -1,12 +1,12 @@
 import { colourNameToHexMap } from "./colors";
 
-const getHexDifference = (hex1, hex2) => {
+const getHexDifference = (hex1: string, hex2: string): number => {
   const dec1 = parseInt(hex1, 16);
   const dec2 = parseInt(hex2, 16);
   return dec1 > dec2 ? dec1 - dec2 : dec2 - dec1;
 };
 
-const hexToColorName = (toFind) => {
+const hexToColorName = (toFind: string): void => {
   const hexColor = toFind.replace("#", "");
 
   const differences = Object.keys(colourNameToHexMap).map((color) => {
