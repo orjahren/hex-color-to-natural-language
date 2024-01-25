@@ -22,14 +22,26 @@ const hexToColorName = (toFind: string): string => {
   return closestMatch.color;
 };
 
-// Red
-console.log(hexToColorName("#ff0000"));
+const doTesting = () => {
+  const test = (hex: string, expected: string) => {
+    const result = hexToColorName(hex);
+    if (result === expected) {
+      console.log(`✅ ${hex} -> ${result}`);
+    } else {
+      console.log(`❌ ${hex} -> ${result}`);
+    }
+  };
 
-// light blue
-console.log(hexToColorName("#72b2f4"));
+  const tests = [
+    ["#ff0000", "red"],
+    ["#72b2f4", "lightskyblue"],
+    ["#367c2b", "darkgreen"],
+    ["#008000", "green"],
+  ];
+  for (const [hex, expected] of tests) {
+    test(hex, expected);
+  }
+};
 
-// some shade of green
-console.log(hexToColorName("#367c2b"));
-
-// standard greeen
-console.log(hexToColorName("#008000"));
+doTesting();
+export default hexToColorName;

@@ -18,11 +18,26 @@ var hexToColorName = function (toFind) {
     });
     return closestMatch.color;
 };
-// Red
-console.log(hexToColorName("#ff0000"));
-// light blue
-console.log(hexToColorName("#72b2f4"));
-// some shade of green
-console.log(hexToColorName("#367c2b"));
-// standard greeen
-console.log(hexToColorName("#008000"));
+var doTesting = function () {
+    var test = function (hex, expected) {
+        var result = hexToColorName(hex);
+        if (result === expected) {
+            console.log("\u2705 ".concat(hex, " -> ").concat(result));
+        }
+        else {
+            console.log("\u274C ".concat(hex, " -> ").concat(result));
+        }
+    };
+    var tests = [
+        ["#ff0000", "red"],
+        ["#72b2f4", "lightskyblue"],
+        ["#367c2b", "darkgreen"],
+        ["#008000", "green"],
+    ];
+    for (var _i = 0, tests_1 = tests; _i < tests_1.length; _i++) {
+        var _a = tests_1[_i], hex = _a[0], expected = _a[1];
+        test(hex, expected);
+    }
+};
+doTesting();
+exports.default = hexToColorName;
