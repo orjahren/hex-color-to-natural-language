@@ -9,12 +9,10 @@ var getHexDifference = function (hex1, hex2) {
 var hexToColorName = function (toFind) {
     var hexColor = toFind.replace("#", "");
     var differences = Object.keys(colors_1.colourNameToHexMap).map(function (color) {
-        //console.log(color);
         var hex = colors_1.colourNameToHexMap[color].replace("#", "");
         var diff = getHexDifference(hex, hexColor);
         return { color: color, diff: diff };
     });
-    //console.log(differences);
     var smallestDiff = differences.reduce(function (prev, curr) {
         return prev.diff < curr.diff ? prev : curr;
     });
@@ -22,7 +20,9 @@ var hexToColorName = function (toFind) {
 };
 // Red
 hexToColorName("#ff0000");
-// lyseblå
+// light blue
 hexToColorName("#72b2f4");
-// grønn
+// some shade of green
 hexToColorName("#367c2b");
+// standard greeen
+hexToColorName("#008000");

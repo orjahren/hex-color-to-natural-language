@@ -10,12 +10,11 @@ const hexToColorName = (toFind: string): void => {
   const hexColor = toFind.replace("#", "");
 
   const differences = Object.keys(colourNameToHexMap).map((color) => {
-    //console.log(color);
     const hex = colourNameToHexMap[color].replace("#", "");
     const diff = getHexDifference(hex, hexColor);
     return { color, diff };
   });
-  //console.log(differences);
+
   const smallestDiff = differences.reduce((prev, curr) => {
     return prev.diff < curr.diff ? prev : curr;
   });
@@ -25,8 +24,11 @@ const hexToColorName = (toFind: string): void => {
 // Red
 hexToColorName("#ff0000");
 
-// lyseblå
+// light blue
 hexToColorName("#72b2f4");
 
-// grønn
+// some shade of green
 hexToColorName("#367c2b");
+
+// standard greeen
+hexToColorName("#008000");
