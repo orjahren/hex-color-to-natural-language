@@ -13,16 +13,16 @@ var hexToColorName = function (toFind) {
         var diff = getHexDifference(hex, hexColor);
         return { color: color, diff: diff };
     });
-    var smallestDiff = differences.reduce(function (prev, curr) {
+    var closestMatch = differences.reduce(function (prev, curr) {
         return prev.diff < curr.diff ? prev : curr;
     });
-    console.log(smallestDiff);
+    return closestMatch.color;
 };
 // Red
-hexToColorName("#ff0000");
+console.log(hexToColorName("#ff0000"));
 // light blue
-hexToColorName("#72b2f4");
+console.log(hexToColorName("#72b2f4"));
 // some shade of green
-hexToColorName("#367c2b");
+console.log(hexToColorName("#367c2b"));
 // standard greeen
-hexToColorName("#008000");
+console.log(hexToColorName("#008000"));
