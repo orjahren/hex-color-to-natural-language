@@ -1,0 +1,24 @@
+{
+  "name": "hex-color-to-natural-language",
+  "version": "1.0.0",
+  "description": "Provides a utility function to convert a hex color to its closest natural language CSS counterpart.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orjahren/hex-color-to-natural-language.git#main"
+  },
+  "keywords": [
+    "hex",
+    "color",
+    "css"
+  ],
+  "author": "Oliver Jahren",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/orjahren/hex-color-to-natural-language/issues"
+  },
+  "homepage": "https://github.com/orjahren/hex-color-to-natural-language/tree/main#readme"
+}
