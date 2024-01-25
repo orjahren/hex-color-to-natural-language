@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/orjahren/hex-color-to-natural-language/issues"
   },
-  "homepage": "https://github.com/orjahren/hex-color-to-natural-language/tree/main#readme"
+  "homepage": "https://github.com/orjahren/hex-color-to-natural-language/tree/main#readme",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
 }
